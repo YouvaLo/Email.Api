@@ -1,0 +1,13 @@
+version: '3.8' 
+
+services: 
+  email-api:
+    build:
+      context: . 
+      dockerfile: Email.Api/Dockerfile 
+    container_name: email_api_service
+    ports:
+      - "8088:8080" # Map du port 8080 du conteneur au port 8088 du hôte
+                    # l'API via http://localhost:8088
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development # Définir l'environnement ASP.NET Core
